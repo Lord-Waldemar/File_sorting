@@ -3,37 +3,39 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class readFile {
     public static void main(String[] args) {
-        String fileName = "file1.txt";
-//        System.out.println(readFileInt(fileName));
-        System.out.println(readFileString(fileName));
+        String fileName = "fileI.txt";
+        System.out.println(Arrays.toString(readFileInt(fileName)));
+//        System.out.println(readFileString(fileName));
     }
 
-    public static ArrayList readFileInt(String fileName) {
+    public static int[] readFileInt(String fileName) {
         try {
-            File file = new File("/Users/PCUser/Desktop/" + fileName);
+            File file = new File("X:/" + fileName);
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
-            ArrayList list = new ArrayList<>();
+            ArrayList<Integer> list = new ArrayList<Integer>();
             while (line != null) {
                 line = line.trim();
                 if (!line.contains(" ") & line.matches("-?[\\d ]+") & !line.matches("-?[\\n ]+")) {
-                    list.add(line);
+                    list.add(Integer.valueOf(line));
                 }
                 line = reader.readLine();
             }
-            return list;
+            int[] arrInt = list.stream().filter(i -> i != null).mapToInt(i -> i).toArray();
+            return arrInt;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
-    public static ArrayList readFileString(String fileName) {
+    public static String[] readFileString(String fileName) {
         try {
-            File file = new File("/Users/PCUser/Desktop/" + fileName);
+            File file = new File("X:/" + fileName);
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
@@ -45,7 +47,8 @@ public class readFile {
                 }
                 line = reader.readLine();
             }
-            return list;
+            String[] arrStr = (String[]) list.stream().toArray(String[]::new);
+            return arrStr;
         } catch (IOException e) {
             e.printStackTrace();
         }
