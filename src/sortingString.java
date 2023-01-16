@@ -47,7 +47,7 @@ public class sortingString {
         String[] result = sorted1 == buffer1 ? buffer2 : buffer1;
         while (index1 < middle && index2 < endIndex) {
             for (int i = 0; i < sorted1[index1].length() & i < sorted2[index2].length(); i++){
-                if (sorted1[index1].charAt(i) == sorted2[index2].charAt(i)) i++;
+                if (sorted1[index1].charAt(i) == sorted2[index2].charAt(i)) continue;
                 else result[destIndex++] = sorted1[index1].charAt(i) < sorted2[index2].charAt(i)
                         ? sorted1[index1++] : sorted2[index2++];
             }
@@ -67,7 +67,7 @@ public class sortingString {
 
         while (i1 < array1.length && i2 < array2.length) {
             for (int i = 0;i < array1[i1].length() & i < array2[i2].length(); i++){
-                if (array1[i1].charAt(i) == array2[i2].charAt(i)) i++;
+                if (array1[i1].charAt(i) == array2[i2].charAt(i)) continue;
                 else if (array1[i1].charAt(i) < array2[i2].charAt(i)) {
                     result[ir] = array1[i1];
                     i1++;;

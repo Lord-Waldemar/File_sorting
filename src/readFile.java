@@ -14,7 +14,7 @@ public class readFile {
 
     public static int[] readFileInt(String fileName) {
         try {
-            File file = new File("X:/" + fileName);
+            File file = new File("C:/" + fileName);
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
@@ -35,7 +35,7 @@ public class readFile {
     }
     public static String[] readFileString(String fileName) {
         try {
-            File file = new File("X:/" + fileName);
+            File file = new File("C:/" + fileName);
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();

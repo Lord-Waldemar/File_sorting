@@ -7,7 +7,7 @@ public class writeFile {
     }
 
     public static void wrireIntFile(int[] text){
-        try(FileWriter writer = new FileWriter("X:/out.txt", false)) {
+        try(FileWriter writer = new FileWriter("C:/out.txt", false)) {
             for (int i = 0; i < text.length; i++) {
                 writer.write(text[i]+"\n");
             }
