@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class readFile {
     public static void main(String[] args) {
@@ -22,32 +23,33 @@ public class readFile {
                 }
                 line = reader.readLine();
             }
-            int[] arrInt = list.stream().filter(i -> i != null).mapToInt(i -> i).toArray();
-            return arrInt;
+            return list.stream().filter(Objects::nonNull).mapToInt(i -> i).toArray();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
-    public static String[] readFileString(String fileName) {
-        try {
-            File file = new File("C:/" + fileName);
-            FileReader fr = new FileReader(file);
-            BufferedReader reader = new BufferedReader(fr);
-            String line = reader.readLine();
-            ArrayList list = new ArrayList<>();
-            while (line != null) {
-                line = line.trim();
-                if (!line.contains(" ") & !line.matches("-?[\\d]+")) {
-                    list.add(line);
-                }
-                line = reader.readLine();
-            }
-            String[] arrStr = (String[]) list.stream().toArray(String[]::new);
-            return arrStr;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
+    //НЕ ДОДЕЛАНО
+//    public static String[] readFileString(String fileName) {
+//        try {
+//            File file = new File("C:/" + fileName);
+//            FileReader fr = new FileReader(file);
+//            BufferedReader reader = new BufferedReader(fr);
+//            String line = reader.readLine();
+//            ArrayList list = new ArrayList<>();
+//            while (line != null) {
+//                line = line.trim();
+//                if (!line.contains(" ") & !line.matches("-?[\\d]+")) {
+//                    list.add(line);
+//                }
+//                line = reader.readLine();
+//            }
+//            String[] arrStr = (String[]) list.stream().toArray(String[]::new);
+//            return arrStr;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 }
