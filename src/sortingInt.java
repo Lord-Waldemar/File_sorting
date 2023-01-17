@@ -5,7 +5,7 @@ public class sortingInt {
         //удалить
         int[] array1 = { 8, 0, -3, 5, 6, 9, 8, -4, 2, -99, 43 };
         int[] array2 = { 5, 0, -36, 51, 8, 95, 86, -14, 2, -92, 3 };
-        String isDesc = "-dcf";
+        String isDesc = "-d";
         int[] result = mergeSort(array1);
         int[] result2 = merge(mergeSort(array1, isDesc), mergeSort(array2, isDesc), isDesc);
         System.out.println(Arrays.toString(result));
@@ -124,8 +124,8 @@ public class sortingInt {
     }
     public static int[] merge(int array1[], int array2[], String isDesc) {
         int i1 = 0, i2 = 0, ir = 0;
+        int[] result = new int[array1.length + array2.length];
         try {
-            int[] result = new int[array1.length + array2.length];
             switch (isDesc) {
                 case ("-a"):
                     while (i1 < array1.length && i2 < array2.length) {
@@ -165,6 +165,6 @@ public class sortingInt {
                 System.out.println("Введенный режим сортировки не удалось распознать. Вы можете ввести -a или ничего не вводить для сортировки по возрастанию, -d для сортировки по убыванию.");
 
             }
-        return null;
+        return result;
     }
 }
