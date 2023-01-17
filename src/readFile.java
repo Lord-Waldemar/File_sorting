@@ -15,7 +15,7 @@ public class readFile {
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
-            ArrayList<Integer> list = new ArrayList<Integer>();
+            ArrayList<Integer> list = new ArrayList<>();
             while (line != null) {
                 line = line.trim();
                 if (!line.contains(" ") & line.matches("-?[\\d ]+") & !line.matches("-?[\\n ]+")) {

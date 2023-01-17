@@ -16,16 +16,16 @@ public class Main {
         for (int i=0; i < conditions.length; i++){
             if (conditions[0].equals("-d") | conditions[0].equals("-a") ) {
                 switch (i) {
-                    case (0) -> isDesc = conditions[i];
+                    case (0) -> isDesc = conditions[i].toLowerCase();
 //                    Для сортировки строк
-//                    case (1) -> typeOfData = condishions[i];
+//                    case (1) -> typeOfData = conditions[i];
                     case (1) -> outFileName = conditions[i];
                     case (2), (3), (4) -> inFileName.add(conditions[i]);
                 }
             } else
                 switch (i) {
 //                    Для сортировки строк
-//                    case (0) -> typeOfData = condishions[i];
+//                    case (0) -> typeOfData = conditions[i];
                     case (0) -> outFileName = conditions[i];
                     case (2), (3), (1) -> inFileName.add(conditions[i]);
                 }

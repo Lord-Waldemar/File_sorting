@@ -38,7 +38,7 @@ public class sortingInt {
         return result;
     }
 
-    public static int[] merge(int array1[], int array2[]) {
+    public static int[] merge(int[] array1, int[] array2) {
         int i = 0, j = 0, iResult = 0;
         int [] result = new int[array1.length + array2.length];
 
