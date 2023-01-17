@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
+        System.out.println("Введите название диска на котором у вас лежат файлы для сортировки.");
+        String diskName = sc.nextLine().toUpperCase();
         System.out.println("Введите параметры сортировки в формате, показанном ниже, соблюдая порядок:\n-d out.txt file.txt file2.txt");
         String[] condishions = sc.nextLine().split(" ");
         String isDesc = null, typeOfData, outFileName = null;
@@ -46,17 +48,18 @@ public class Main {
                     System.out.println("Вы не указали входных файлов!");
                     break;
                 case (1):
-                    writeFile.wrireIntFile(sortingInt.mergeSort(readFile.readFileInt(inFileName.get(0).toString())), outFileName);
+                    writeFile.wrireIntFile(sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(0).toString())),diskName, outFileName);
                     break;
                 case (2):
-                    writeFile.wrireIntFile(sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(inFileName.get(0).toString())),
-                            sortingInt.mergeSort(readFile.readFileInt(inFileName.get(1).toString()))), outFileName);
+                    writeFile.wrireIntFile(sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(0).toString())),
+                            sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(1).toString()))), diskName, outFileName);
                     break;
                 case (3):
-                    int[] out = sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(inFileName.get(0).toString())),
-                            sortingInt.mergeSort(readFile.readFileInt(inFileName.get(1).toString())));
+                    int[] out = sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(0).toString())),
+                            sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(1).toString())));
+                    System.out.println(out);
                     writeFile.wrireIntFile((sortingInt.merge(out,
-                            sortingInt.mergeSort(readFile.readFileInt(inFileName.get(2).toString())))), outFileName);
+                            sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(2).toString())))), diskName, outFileName);
                     break;
             }
         }
@@ -67,47 +70,20 @@ public class Main {
                     System.out.println("Вы не указали входных файлов!");
                     break;
                 case (1):
-                    writeFile.wrireIntFile(sortingInt.mergeSort(readFile.readFileInt(inFileName.get(0).toString()), isDesc), outFileName);
+                    writeFile.wrireIntFile(sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(0).toString()), isDesc), diskName, outFileName);
                     break;
                 case (2):
-                    writeFile.wrireIntFile(sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(inFileName.get(0).toString()), isDesc),
-                            sortingInt.mergeSort(readFile.readFileInt(inFileName.get(1).toString()), isDesc)), outFileName);
+                    writeFile.wrireIntFile(sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(0).toString()), isDesc),
+                            sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(1).toString()), isDesc), isDesc), diskName, outFileName);
                     break;
                 case (3):
-                    int[] out = sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(inFileName.get(0).toString()), isDesc),
-                            sortingInt.mergeSort(readFile.readFileInt(inFileName.get(1).toString()), isDesc));
+                    int[] out = sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(0).toString()), isDesc),
+                            sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(1).toString()), isDesc), isDesc);
+                    System.out.println(out.toString());
                     writeFile.wrireIntFile((sortingInt.merge(out,
-                            sortingInt.mergeSort(readFile.readFileInt(inFileName.get(2).toString()), isDesc))), outFileName);
+                            sortingInt.mergeSort(readFile.readFileInt(diskName, inFileName.get(2).toString()), isDesc), isDesc)), diskName, outFileName);
                     break;
             }
         }
-
-
-//        int[] out = sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt(inFileName.get(0).toString())),
-//                sortingInt.mergeSort(readFile.readFileInt(inFileName.get(1).toString())));
-//
-//        System.out.println(isDesc + outFileName + inFileName.toString());
-//
-//
-        System.out.println(Arrays.toString(sortingInt.mergeSort(readFile.readFileInt("file.txt"), isDesc)));
-        System.out.println(Arrays.toString(sortingInt.mergeSort(readFile.readFileInt("file2.txt"), isDesc)));
-
-        System.out.println(Arrays.toString(sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt("file.txt"), isDesc),
-                sortingInt.mergeSort(readFile.readFileInt("file2.txt"), isDesc))));
-//
-//
-//        System.out.println(Arrays.toString(out));
-//        System.out.println(Arrays.toString(sortingInt.merge(out,
-//                sortingInt.mergeSort(readFile.readFileInt("file3.txt")))));
-//TODO изменить запись файла с передачей имени выходного файла
-
-
-//        writeFile.wrireIntFile((sortingInt.merge(sortingInt.mergeSort(readFile.readFileInt("file.txt")),
-//                sortingInt.mergeSort(readFile.readFileInt("file2.txt")))));
-//        System.out.println(Arrays.toString(sorting.mergeSortString(readFile.readFileString("fileS.txt"))));
-//        System.out.println(Arrays.toString(sorting.mergeSortString(readFile.readFileString("fileS2.txt"))));
-//        System.out.println(Arrays.toString(sorting.mergeString(sorting.mergeSortString(readFile.readFileString("fileI.txt")),
-//                sorting.mergeSortString(readFile.readFileString("fileI2.txt")))));
     }
-
 }

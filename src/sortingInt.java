@@ -2,14 +2,6 @@ import java.util.Arrays;
 
 public class sortingInt {
     public static void main(String[] args) {
-        //удалить
-        int[] array1 = { 8, 0, -3, 5, 6, 9, 8, -4, 2, -99, 43 };
-        int[] array2 = { 5, 0, -36, 51, 8, 95, 86, -14, 2, -92, 3 };
-        String isDesc = "-d";
-        int[] result = mergeSort(array1);
-        int[] result2 = merge(mergeSort(array1, isDesc), mergeSort(array2, isDesc), isDesc);
-        System.out.println(Arrays.toString(result));
-        System.out.println(Arrays.toString(result2));
     }
 
     public static int[] mergeSort(int[] array1) {

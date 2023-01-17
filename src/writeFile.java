@@ -1,13 +1,12 @@
 import java.io.*;
-import java.lang.reflect.Array;
 
 public class writeFile {
 
     public static void main(String[] args) {
     }
 
-    public static void wrireIntFile(int[] text, String fileName){
-        try(FileWriter writer = new FileWriter("C:/" + fileName, false)) {
+    public static void wrireIntFile(int[] text,String diskName, String fileName){
+        try(FileWriter writer = new FileWriter(diskName + ":/" + fileName, false)) {
             for (int i = 0; i < text.length; i++) {
                 writer.write(text[i]+"\n");
             }

@@ -1,3 +1,8 @@
+//!!!
+//
+// ме дндекюмн
+//
+//!!!
 import java.util.Arrays;
 
 public class sortingString {
@@ -19,7 +24,6 @@ public class sortingString {
             }
         }
     }
-
 
 
     public static String[] mergeSortString(String[] array1) {
@@ -91,5 +95,4 @@ public class sortingString {
         }
         return result;
     }
-
 }
